@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>React: An introduction</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A short introduction to React.">
+		<meta name="author" content="Tin Crnkovic">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -41,15 +41,97 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+					<h1>react</h1>
+					<h3>biblioteka za neloša korisnička sučelja</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<a href="mailto:tinc2k@gmail.com">Tin Crnković</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://twitter.com/tinc2k">@tinc2k</a>
 					</p>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+					## šta?
+
+					* software engineer, photographer, Croatian Ambassador of Bad Will
+					* team lead @ [Clarity Consulting](https://www.claritycon.com)
+					* co-founder [0bit.co](http://0bit.co) w/ [@budidino](https://twitter.com/0bitco)
+					* [github.com/tinc2k](https://github.com/tinc2k)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					## sadržaj pakiranja
+					* život u browseru
+					* svrha postojanja
+					* ste vi normalni?
+					* glavni koncepti
+					* komponente i kompozicija
+					* Flux
+					* React Native
+					</script>
+					<aside class="notes">
+						pre-flight check:
+						tko je pisao HTML/CSS/JS do sada?
+						GET i POST?
+						MVC? MVVM? REST?
+						jQuery
+						angular, knockout, ember, backbone
+						grunt, bower
+
+						refs:
+						http://facebook.github.io/react/docs/tutorial.html
+						http://www.funnyant.com/reactjs-what-is-it/
+						http://www.quora.com/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look
+						http://facebook.github.io/react/docs/tutorial.html
+						http://www.infoq.com/articles/reactjs-codecademy?utm_source=hacker%20news&utm_medium=link&utm_campaign=react_js_article
+						http://jlongster.com/First-Impressions-using-React-Native
+						http://reactjs.net/
+						https://twitter.com/tomocchino
+						https://twitter.com/floydophone
+						http://www.quora.com/Pete-Hunt
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					## život u browseru
+					* MV\*, TodoMVC[*](http://todomvc.com/), *data binding*
+					* HTML5, ES6, Web Components, Promise...
+					* the end of monolithic javascript[*](https://andywalpole.me/#!/blog/142134/2015-the-end-the-monolithic-javascript-framework)
+					* angular, mithril, knockout, ampersand, ember, flight, backbone...
+					- Node, Meteor, SocketStream, FireBase...
+					* npm, bower, grunt...
+					* JS gotchas
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					## svrha postojanja
+					* rast aplikacije, timova, kompleksnosti
+					* performanse
+					* view-only, virtual DOM, one-way reactive data flow
+					</script>
+					<aside class="notes">
+					 - cilj je izgradnja velikih aplikacija s mnogo ne-staticnih podataka (Facebook, Twitter, Instagram, dashboards)
+  					- stvari se uvijek pocnu krsiti a) sa rastom kompleksnosti b) sa rastom tima
+					- 
+					</aside>
+				</section>
+
+
+
+
+
+
+
+
+
 				<section>
-					<h2>Hello There</h2>
+					<h2>Tko?</h2>
 					<p>
 						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
 					</p>
@@ -389,7 +471,7 @@ Reveal.addEventListener( 'customevent', function() {
 				history: true,
 				center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
 
 				// Optional reveal.js plugins
 				dependencies: [

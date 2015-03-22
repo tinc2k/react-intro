@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Intro</title>
+    <meta charset="UTF-8">
     <script src="build/react.js"></script>
     <script src="build/JSXTransformer.js"></script>
+    <style>
+      body, h1, h2, h3, h4, button {
+        font-family: Helvetica,Arial,sans-serif;
+      }
+      *:focus {
+        outline: 0;
+      }
+      button {
+        background: #777;
+        border-radius: 5px;
+        border: 0;
+        color: #fff;
+        padding: 5px 10px;
+        margin: 10px 0 10px 0;
+      }
+      button:hover {
+        background: #1F75FE;
+      }
+      .violet-blue {
+        color: #1F75FE;
+      }
+
+    </style>
   </head>
   <body>
-    <div id="example"></div>
+    <div id="container"></div>
+    
     <script type="text/jsx">
+      var SimpleComponent = React.createClass({
+        getInitialState: function() {
+          return {
+            date: new Date(),
+            message: 'Sucks, right?',
+            counter: 0
+          };
+        },
+        getDayName: function() {
+          return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][this.state.date.getDay()];
+        },
+        handleClick: function(event) {
+          this.setState({
+            counter: this.state.counter + 1,
+            message: this.state.counter < 3 ? 'Still sucks, sorry about that.' : 'Go away.'
+          });
+        },
+        render: function() {
+          return (
+            <div>
+              <h1>Hello {this.props.name}!</h1>
+              Today is a <strong className="violet-blue">{this.getDayName()}</strong>.
+              {this.state.message}
+              <br />
+              <button onClick={this.handleClick}>Omađijaj me</button>
+            </div>
+          );
+        }
+      });
+
       React.render(
-        <h1>Hello, world!</h1>,
-        document.getElementById('example')
+        <SimpleComponent name="DevUG Rijeka"/>,
+        document.getElementById('container')
       );
+
     </script>
   </body>
 </html>
