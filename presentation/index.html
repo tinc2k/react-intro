@@ -42,30 +42,21 @@
 			<div class="slides">
 				<section>
 					<h1>react</h1>
-					<h3>biblioteka za neloša korisnička sučelja</h3>
+					<h3>biblioteka za <strike>neloša</strike> brza korisnička sučelja</h3>
 					<p>
 						<a href="mailto:tinc2k@gmail.com">Tin Crnković</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://twitter.com/tinc2k">@tinc2k</a>
 					</p>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-					## šta?
-
-					* software engineer, photographer, Croatian Ambassador of Bad Will
-					* team lead @ [Clarity Consulting](https://www.claritycon.com)
-					* co-founder [0bit.co](http://0bit.co) w/ [@budidino](https://twitter.com/0bitco)
-					* [github.com/tinc2k](https://github.com/tinc2k)
-					</script>
-				</section>
 
 				<section data-markdown>
 					<script type="text/template">
 					## sadržaj pakiranja
-					* život u browseru
-					* svrha postojanja
+					* hipsteri
+					* internet
 					* ste vi normalni?
-					* glavni koncepti
+					* svrha postojanja
+					* koncepti
 					* komponente i kompozicija
 					* Flux
 					* React Native
@@ -93,16 +84,28 @@
 					</aside>
 				</section>
 
+
 				<section data-markdown>
 					<script type="text/template">
-					## život u browseru
-					* MV\*, TodoMVC[*](http://todomvc.com/), *data binding*
-					* HTML5, ES6, Web Components, Promise...
-					* the end of monolithic javascript[*](https://andywalpole.me/#!/blog/142134/2015-the-end-the-monolithic-javascript-framework)
-					* angular, mithril, knockout, ampersand, ember, flight, backbone...
+					## web za hipstere
+					* *data binding*, *frameworks*, TodoMVC[*](http://todomvc.com/)
+					* HTML5, ES6, Web Components, Promises...
+					* AngularJS, Mithril, KnockoutJS, Ampersand.js, Ember.js, Backbone.js...
 					- Node, Meteor, SocketStream, FireBase...
-					* npm, bower, grunt...
-					* JS gotchas
+					* npm, bower, grunt, VS2015[*](http://www.asp.net/vnext/overview/aspnet-vnext/grunt-and-bower-in-visual-studio-2015)
+					* JavaScript world domination[*](https://medium.com/@slsoftworks/javascript-world-domination-af9ca2ee5070)
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					## trendovi
+					* mnogoslojni JS *frameworks*
+					* DOM renderiranje je zlo
+					* dvostrani *data binding*
 					</script>
 					<aside class="notes">
 					</aside>
@@ -110,17 +113,305 @@
 
 				<section data-markdown>
 					<script type="text/template">
+					## react
+					* *view-only*
+					* render()
+					* jednostrani *data binding*
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					#šta koji qratz?
+					</script>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
 					## svrha postojanja
+					* skaliranje aplikacije
+					* skaliranje tima
+					* nošenje s kompleksnošću
+					* performanse
+					* kraj monolitnih biblioteka?[*](https://andywalpole.me/#!/blog/142134/2015-the-end-the-monolithic-javascript-framework)
+					</script>
+					<aside class="notes">
+				 	- cilj je izgradnja velikih aplikacija s mnogo ne-staticnih podataka (Facebook, Twitter, Instagram, dashboards) 
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					## tko to koristi?
+					* [Facebook](https://www.facebook.com/), [Instagram](http://instagram.com/)
+					* [AirBnB](https://www.airbnb.com/), [Asana](https://www.asana.com/), [Atlassian](https://www.atlassian.com/), [BBC](http://www.bbc.co.uk/), [CloudFlare](http://www.cloudflare.com/), [Codecademy](http://www.codecademy.com/), [Flipboard](https://flipboard.com/), [Imgur](http://imgur.com/), [Khan Academy](http://khanacademy.org/), [KISSmetrics](http://www.kissmetrics.com/), [Netflix](http://netflix.com/), [Reddit](http://www.reddit.com/), [The New York Times](http://www.nytimes.com/), [Venmo](https://venmo.com/), [WhatsApp](https://web.whatsapp.com/), [Wired](http://www.wired.com/), [Yahoo](https://www.yahoo.com/), [Zendesk](http://www.zendesk.com/) 
+					* [Atom](https://atom.io/)
+					</script>
+					<aside class="notes">
+				 	- cilj je izgradnja velikih aplikacija s mnogo ne-staticnih podataka (Facebook, Twitter, Instagram, dashboards)
+  					- stvari se uvijek pocnu krsiti a) sa rastom kompleksnosti b) sa rastom tima
+					- 
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					## Komponenta
+					* props
+					  * setProps(), replaceProps()
+					* state
+					  * setState(), replaceState()
+					  * getInitialState()
+					* render()
+					  * componentWillMount()
+					  * componentDidMount()
+					  * componentWillUnmount()
+					  * isMounted()
+					* statics
+					</script>
+					<aside class="notes">
+					- props
+						- this.props.something, this.props.children
+						- props are immutable and "owned" by the parent
+					- state
+						- to implement interactions, we introduce mutable *state* to the component
+						- when the state is updated with this.setState(), the component re-renders itself
+						- setState()
+					- render()
+						- returns a tree of React components that will eventually render to HTML
+						- ex. <div> tags are not actual DOM nodes; they are instantiations of React div components
+					- React is *safe* from XSS by default: not generating HTML strings
+					- getInitialState()
+						- executes exactly once during the lifecycle of the component and sets up the initial state
+					- componentWillMount()
+					  - invoked once, both on the client and server, immediately before the initial rendering occurs.
+					- componentDidMount()
+						- Invoked once, only on the client (not on the server), immediately after the initial rendering occurs
+						- method called automatically by React when a component is rendered
+					- componentWillUnmount()
+					- isMounted()
+						- check before refreshing a component due to an asynchronous response
+					- statics
+						- statics object allows you to define static methods that can be called on the component class
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					## JSX
+					* šećer -> JavaScript *kompajler*
+					* server-side kompajliranje
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					## JSX
+					```
+var Komponenta = React.createClass({
+  render: function() {
+    return ( 
+        <div>
+        <h1>Pozdrav, {this.props.name}.</h1>
+        <h2>Top 3 pjesme koje se zovu Jesen su:</h2>
+        <ol>
+          <li>Jesen (EKV)</li>
+          <li>Jesen (Gustafi)</li>
+          <li>Jesen (Gustafi)</li>
+        </ol>
+      </div>
+    );
+  }
+});
+React.render(
+  <Komponenta name="Eutanazija" />,
+  document.getElementById('container')
+);
+					```
+					</script>
+					<aside class="notes">
+					- tagovi smallcaps, komponente BigCaps
+					- class->className, for->htmlFor
+					- <image\><image\> render
+				 	- online compiler: https://facebook.github.io/react/jsx-compiler.html
+				 	- tags and attributes: https://facebook.github.io/react/docs/tags-and-attributes.html
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					## JSX
+					```
+var Komponenta = React.createClass({displayName: "Komponenta",
+  render: function() {
+    return ( 
+      React.createElement("div", null, 
+        React.createElement("h1", null, "Pozdrav, ", this.props.name, "."), 
+        React.createElement("h2", null, "Top 3 pjesme koje se zovu Jesen su:"), 
+        React.createElement("ol", null, 
+          React.createElement("li", null, "Jesen (EKV)"), 
+          React.createElement("li", null, "Jesen (Gustafi)"), 
+          React.createElement("li", null, "Jesen (Gustafi)")
+        )
+      )
+    );
+  }
+});
+React.render(
+  React.createElement(
+    Komponenta, {name: "Eutanazija"}),
+    document.getElementById('container')
+);
+					```
+					</script>
+					<aside class="notes">
+						- ReactElements are not to be confused with DOM Elements. A ReactElement is a light, stateless, immutable, virtual representation of a DOM Element. It is a virtual DOM.
+						- virtual DOM terminology: https://facebook.github.io/react/docs/glossary.html
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					#forms
+					```
+var Komponenta = React.createClass({
+  getInitialState: function() {
+      return {
+        name: 'Vatroslav'
+      };
+    },
+  handleChange: function(event) {
+    this.setState({name: event.target.value});
+    
+  },
+  render: function() {
+    return ( 
+      <div>
+        <h1>Pozdrav, {this.state.name}.</h1>
+        <input value={this.state.name} onChange={this.handleChange} />
+      </div>
+    );
+  }
+});
+
+React.render(<Komponenta />, document.getElementById('container'));
+					```
+					</script>
+					<aside class="notes">
+					working with forms: https://facebook.github.io/react/docs/forms.html
+					- props are value, checked, selected
+					- textareas should use value, not children
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					## events
+					* mouse, touch, ui, wheel
+						* onClick...onTouchMove, onScroll, onWheel
+					* form, focus
+						* onChange, onInput, onSubmit, onFocus, onBlur
+					* keyboard
+						* onKeyDown, onKeyPress, onKeyUp
+					* clipboard
+					  * onCopy, onCut, onPaste
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					## komponente
+					* RecentTweets: Author, Description, Tweets[]
+					  * Tweet: Content, Time
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+
+
+				<section data-markdown>
+					<script type="text/template">
+					## react native
 					* rast aplikacije, timova, kompleksnosti
 					* performanse
 					* view-only, virtual DOM, one-way reactive data flow
 					</script>
 					<aside class="notes">
-					 - cilj je izgradnja velikih aplikacija s mnogo ne-staticnih podataka (Facebook, Twitter, Instagram, dashboards)
-  					- stvari se uvijek pocnu krsiti a) sa rastom kompleksnosti b) sa rastom tima
-					- 
+						Facebook Developers - Introducing React Native
+						https://www.youtube.com/watch?v=KVZ-P-ZI6W4
+
+						Facebook Developers - A Deep Dive into React Native
+						https://www.youtube.com/watch?v=7rDsRXj9-cU
+
+						http://reefpoints.dockyard.com/2015/01/30/why-i-am-disappointed-in-react-native.html
 					</aside>
 				</section>
+
+
 
 
 

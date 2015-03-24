@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro</title>
+    <meta charset="UTF-8">
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/jsx">
+
+    var Komponenta = React.createClass({
+      getInitialState: function() {
+          return {
+            name: 'Vatroslav'
+          };
+        },
+      handleChange: function(event) {
+        this.setState({name: event.target.value});
+      },
+  		render: function() {
+  			return ( 
+  				<div>
+  					<h1>Pozdrav, {this.state.name}.</h1>
+  					<input value={this.state.name} onChange={this.handleChange} />
+  				</div>
+  			);
+  		}
+  	});
+
+	React.render(<Komponenta />, document.getElementById('container'));
+
+    </script>
+  </body>
+</html>
+
+

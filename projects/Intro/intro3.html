@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro</title>
+    <meta charset="UTF-8">
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/jsx">
+
+    var data = {
+      author: 'tinc2k',
+      description: 'Developer, photographer, team lead @claritycon, co-founder @0bitco.',
+      tweets: [
+        {id: 1, content: 'underground dnb with hackers of the balkans', time: 'Aug 24'},
+        {id: 2, content: 'Hong Kong has AI running subway engineering & visa applications.', time: 'Jul 6'},
+        {id: 3, content: 'bog je mrtav, kao i subotnji izlazak.', time: 'Jul 22'},
+        {id: 4, content: "ne mogu naci cokoladu u spajzi. ali pronasao sam grasak, termofor i suhe smokve iz '78.", time: 'May 4'}
+      ]
+    };
+
+    var RecentTweets = React.createClass({
+     render: function() {
+        return ( 
+          <div className="recentTweets">
+            <h2>Recent tweets by {this.props.data.author}</h2>
+            <h3>{this.props.data.description}</h3>
+            <TweetList data={this.props.data.tweets} />
+          </div>
+        );
+      }
+    });
+
+    var TweetList = React.createClass({
+      render: function() {
+        var tweets = this.props.data.map(function(tweet) {
+            return <Tweet data={tweet} key={tweet.id} />
+          });
+        return <div className="tweets">{tweets}</div>
+      }
+    });
+
+    var Tweet = React.createClass({
+      render: function() {
+        return (
+          <div className="tweet">
+            <p>{this.props.data.content} <small>({this.props.data.time})</small></p>
+          </div>
+        );
+      }
+    });
+
+    React.render(<RecentTweets data={data}/>, document.getElementById('container'));
+
+    </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro</title>
+    <meta charset="UTF-8">
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/jsx">
+
+    var Komponenta = React.createClass({
+		render: function() {
+			return ( 
+				<div>
+					<h1>Pozdrav, {this.props.name}.</h1>
+					<h2>Top 3 pjesme koje se zovu Jesen su:</h2>
+					<ol>
+						<li>Jesen (EKV)</li>
+						<li>Jesen (Gustafi)</li>
+						<li>Jesen (Gustafi)</li>
+					</ol>
+				</div>
+			);
+		}
+	});
+
+	React.render(<Komponenta name="Eutanazija" />, document.getElementById('container'));
+
+    </script>
+  </body>
+</html>
+
+
