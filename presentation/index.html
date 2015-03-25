@@ -147,6 +147,27 @@
 
 
 				<section data-markdown>
+					<script type="markdown/template">
+					###angular concepts
+					* modules
+					* controllers
+					* directives
+					* scopes
+					* templates
+					* linking functions
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="markdown/template">
+					###react concepts
+					* component
+					* *sometimes* state
+					</script>
+				</section>
+
+
+				<section data-markdown>
 					<script type="text/template">
 					### tko to koristi?
 					* [Facebook](https://www.facebook.com/), [Instagram](http://instagram.com/)
@@ -482,21 +503,74 @@ var CommentForm = React.createClass({
 				<section data-markdown>
 					<script type="text/template">
 					### flux
-					- dispatcher
-					- stores
-					- views
+					- dispatcher (*central hub*)
+					- stores (*domain* models)
+					- views (*view-controllers*)
+					- actions (*APIs*)
 					</script>
 					<aside class="notes">
+					http://facebook.github.io/flux/docs/overview.html
 					- application architecture that Facebook uses for building client-side web apps
 					- unidirectional data flow
 					- more of a pattern rather than a formal framework
-					- 
-					http://facebook.github.io/flux/docs/overview.html
+					- action creators — dispatcher helper methods — used to support a semantic API that describes all changes that are possible in the application
+					- eschews MVC in favor of a unidirectional data flow: dependencies and cascading updates are difficult
+					- various stores hold the application's data and business logic
+					- stores update all the views that are affected
+					- stores have no direct setter methods like setAsRead(), but instead have only a single way of getting new data into their self-contained world — the callback they register with the dispatcher.
+					- The actions are simple objects containing the new data and an identifying type property.
+					- actions are provided to the dispatcher in an _action creator_ method
+					- stores register callbacks to the dispatcher
+					- stores then emit a _change_ event to alert the controller-views
+					- Application state is maintained only in the stores
+					- balance the gain of simpler components against the complexity of multiple data updates flowing into the hierarchy at different points
 					</aside>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
+					### flux
+					````
+┌─────────┐     ┌────────────┐      ┌─────────┐      ┌────────┐      
+│  Action ├────>│ Dispatcher ├─────>│  Store  ├─────>│  View  │ 
+└─────────┘     └────────────┘      └─────────┘      └────────┘
+					````
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+					### flux
+					````
+┌─────────┐    ┌────────────┐    ┌───────┐   ┌────────┐    ┌─────────┐
+│  Action ├───>│ Dispatcher ├───>│ Store ├──>│  View  ├───>│ SubView │
+└─────────┘    └────┬───────┘    └───────┘   └────────┘    └─────────┘
+                    │            ┌───────┐   ┌────────┐
+                    └───────────>│ Store ├──>│  View  │
+                                 └───────┘   └────────┘
+					````
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+					### flux
+					````
+                                ┌─────────┐ 
+                      ┌─────────┤  Action │<──────┐ 
+                      │         └─────────┘       │
+┌─────────┐    ┌──────↓─────┐    ┌───────┐   ┌────┴───┐    ┌─────────┐
+│  Action ├───>│ Dispatcher ├───>│ Store ├──>│  View  ├───>│ SubView │
+└─────────┘    └────┬───────┘    └───────┘   └────────┘    └─────────┘
+                    │            ┌───────┐   ┌────────┐
+                    └───────────>│ Store ├──>│  View  │
+                                 └───────┘   └────────┘
+					````
 					</script>
 					<aside class="notes">
 					</aside>
@@ -510,6 +584,7 @@ var CommentForm = React.createClass({
 					</aside>
 				</section>
 
+
 				<section data-markdown>
 					<script type="text/template">
 					</script>
@@ -517,6 +592,12 @@ var CommentForm = React.createClass({
 					</aside>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+					</script>
+					<aside class="notes">
+					</aside>
+				</section>
 
 
 				<section data-markdown>
@@ -534,53 +615,39 @@ var CommentForm = React.createClass({
 					</aside>
 				</section>
 
-				<section style="text-align: left;">
-					<script type="text/template">
-						## -> CUT HERE
-					</script>
-				</section>
-
 
 				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
+					<h1>THE END</h1>
 					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+						<a href="http://github.com/tinc2k/react-intro">github.com/tinc2k/react-intro</a> <br>
+						<a href="mailto:tinc2k@gmail.com">tinc2k@gmail.com</a>
 					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
+				</section>
+
+				<section>
+					<section data-background="#dddddd">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Tiled Backgrounds</h2>
+						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Backgrounds</h2>
+							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
 				</section>
 
 			</div>
