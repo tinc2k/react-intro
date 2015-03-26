@@ -62,17 +62,6 @@ dlldata.c
 *.svclog
 *.scc
 
-# Chutzpah Test files
-_Chutzpah*
-
-# Visual C++ cache files
-ipch/
-*.aps
-*.ncb
-*.opensdf
-*.sdf
-*.cachefile
-
 # Visual Studio profiler
 *.psess
 *.vsp
@@ -89,38 +78,8 @@ _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
-# JustCode is a .NET coding addin-in
-.JustCode
-
-# TeamCity is a build add-in
-_TeamCity*
-
-# DotCover is a Code Coverage Tool
-*.dotCover
-
-# NCrunch
-_NCrunch_*
-.*crunch*.local.xml
-
-# MightyMoose
-*.mm.*
-AutoTest.Net/
-
-# Web workbench (sass)
-.sass-cache/
-
 # Installshield output folder
 [Ee]xpress/
-
-# DocProject is a documentation generator add-in
-DocProject/buildhelp/
-DocProject/Help/*.HxT
-DocProject/Help/*.HxC
-DocProject/Help/*.hhc
-DocProject/Help/*.hhk
-DocProject/Help/*.hhp
-DocProject/Help/Html2
-DocProject/Help/html
 
 # Click-Once directory
 publish/
@@ -176,11 +135,3 @@ UpgradeLog*.htm
 # SQL Server files
 *.mdf
 *.ldf
-
-# Business Intelligence projects
-*.rdl.data
-*.bim.layout
-*.bim_*.settings
-
-# Microsoft Fakes
-FakesAssemblies/
