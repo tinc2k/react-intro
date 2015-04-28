@@ -21,8 +21,8 @@ namespace Newsfeed
 			// your components as well as all of their dependencies.
 			// See http://reactjs.net/ for more information. Example:
 			ReactSiteConfiguration.Configuration
-				.AddScript("~/Scripts/HelloWorld.jsx");
-				//.AddScript("~/Scripts/Second.jsx");
+				.AddScript("~/Scripts/HelloWorld.jsx")
+                .AddScript("/Scripts/StatusForm.jsx");
 		}
 	}
 }

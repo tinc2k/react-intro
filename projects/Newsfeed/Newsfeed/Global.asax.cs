@@ -9,6 +9,7 @@ using System.Web.SessionState;
 using System.Web.Http;
 using Newsfeed.App_Start;
 using System.Web.Optimization;
+using System.Diagnostics;
 
 namespace Newsfeed
 {
@@ -22,6 +23,11 @@ namespace Newsfeed
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        void Session_OnStart(object sender, EventArgs e)
+        {
+            Debug.WriteLine("{0} [NewsFeed] Session Id {1} started.", DateTime.Now, Session.SessionID);
         }
     }
 }

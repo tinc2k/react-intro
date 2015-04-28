@@ -5,23 +5,20 @@
 
 <html>
 <head>
-<meta name="viewport" content="width=device-width" />
-<title>Newsfeed</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Newsfeed</title>
 
-@*<script src="https://fb.me/react-with-addons-0.13.2.min.js"></script>*@
-@*<script src="https://fb.me/JSXTransformer-0.13.2.js"></script>*@
+    @Styles.Render("~/content/css")
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 
-@*<script src="@Url.Content("~/Scripts/HelloWorld.jsx")"></script>*@
+    @*<script src="https://fb.me/react-with-addons-0.13.2.min.js"></script>*@
+    @*<script src="https://fb.me/JSXTransformer-0.13.2.js"></script>*@
 
-@Scripts.Render("~/bundles/core")
-@Scripts.Render("~/bundles/components")
+    @*<script src="@Url.Content("~/Scripts/HelloWorld.jsx")"></script>*@
 
-<style>
-    .card {
-        border: 1px solid #000;
-        background: #f00;
-    }
-</style>
+    @Scripts.Render("~/bundles/core")
+    @Scripts.Render("~/bundles/react-components")
+
 </head>
 
 <body>
@@ -39,6 +36,7 @@
         name = "World"
     })
 
+    @Html.React("StatusForm", new{})
 
     @Html.ReactInitJavaScript()
 </body>

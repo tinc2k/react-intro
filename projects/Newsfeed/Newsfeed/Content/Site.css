@@ -1,0 +1,27 @@
+﻿body, a, h1, h2, h3, h4, h5, h6, input, button, textarea {
+    font-family:'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+
+body {
+    background: #0ff;
+}
+
+
+.statusForm {
+    background: #fff;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+    width: 500px;
+    height: 120px;
+    margin: 10px 10px 10px 10px;
+    display: block;
+    float: left;
+}
+
+.statusForm textarea {}

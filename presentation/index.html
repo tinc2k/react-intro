@@ -48,7 +48,8 @@
 			<div class="slides">
 				<section>
 					<h1>react</h1>
-					<h3>biblioteka za <strike>neloša</strike> brza, složena korisnička sučelja</h3>
+					<h3>biblioteka za <strike>neloša</strike> brza složena korisnička sučelja*</h3>
+          <h6>* maknuo sam zarez jer me je goran mehanović tlačio na fejsu oko toga prošli put</h6>
 					<p>
 						<a href="mailto:tinc2k@gmail.com">Tin Crnković</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://twitter.com/tinc2k">@tinc2k</a>
 					</p>
@@ -616,9 +617,22 @@ var CommentForm = React.createClass({
             http://www.infoq.com/articles/reactjs-codecademy?utm_source=hacker%20news&utm_medium=link&utm_campaign=react_js_article
 
             
-            Install-Package React.Web.Mvc4                      # https://www.nuget.org/packages/React.Web.Mvc4/
-            Install-Package Microsoft.AspNet.Web.Optimization   # bundling & minimization
-            Install-Package System.Web.Optimization.React       # bundling JSX files
+            1. ponavljanje
+            2. environment
+
+              Install-Package React.Web.Mvc4                      # https://www.nuget.org/packages/React.Web.Mvc4/
+              Install-Package Microsoft.AspNet.Web.Optimization   # bundling & minimization
+              Install-Package System.Web.Optimization.React       # bundling JSX files
+              {instalirati i sam react}
+
+              sublime: babel, babel snippets
+
+              react developer tools: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+
+            3. simple(r) controls
+            4. simple feed (statuses)
+              - pokupiti X statusa sa webapi
+              - POSTati novi status
 
             p1: material comment/status platform
               - 
@@ -627,7 +641,7 @@ var CommentForm = React.createClass({
               - hierarchical ui components -> trickle down changes
               - animation?
           
-            react developer tools: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+            
             
             trivia:
               https://dev.twitter.com/rest/public/timelines
@@ -643,17 +657,22 @@ var CommentForm = React.createClass({
 
           special things to know:
           
-            <Comment author="Pete Hunt">This is one comment</Comment>   <!-- this.props.author & this.props.children -->
+            --this.props.author & this.props.children
+            <Comment author="Pete Hunt">This is one comment</Comment>
 
+            --class
             <div className="card">
 
+            --inner html
             <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
 
+            ---map
             var commentNodes = this.props.data.map(function (comment) {
               return (<Comment author={comment.author}>{comment.text}</Comment>);
             });
             return (<div className="commentList">{commentNodes}</div>);
 
+            ---bind
             componentDidMount: function() {
               $.ajax({
                 url: this.props.url,
@@ -666,6 +685,46 @@ var CommentForm = React.createClass({
                 }.bind(this)
               });
             },
+
+            ---components
+            var MyFormComponent = React.createClass({...});
+            MyFormComponent.Row = React.createClass({...});
+            MyFormComponent.Label = React.createClass({...});
+            var Form = MyFormComponent;
+            var App = (
+              <Form>
+                <Form.Row>
+                  <Form.Label />
+                </Form.Row>
+              </Form>
+            );
+
+            ---attribute expressions
+            var person = <Person name={window.isLoggedIn ? window.name : ''} />;
+
+            ---spread attributes
+            var props = {};
+            props.foo = x;
+            props.bar = y;
+            var component = <Component {...props} />;
+
+            ---rendering props
+            If you pass properties to native HTML elements that do not exist in the HTML specification, React will not render them
+
+            --interactivity
+            setState(data, callback)
+
+
+
+            workshop:
+            1. razlomiti UI u komponente
+              - iphone home ekran s notifikacijama?
+            2. webapi
+              - fejk tweetanje, komponenta skuplja tweetove sa webapi, prikazuje na ikranu, ima ikone za favourite, retweet
+            3. flux
+            4. signalr
+
+
 
           </aside>
         </section>

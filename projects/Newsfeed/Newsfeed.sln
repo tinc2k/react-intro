@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsfeed", "Newsfeed\Newsfeed.csproj", "{2736DD31-18C4-4434-AF6B-2B2F2A649D1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsfeed.Web", "Newsfeed\Newsfeed.Web.csproj", "{2736DD31-18C4-4434-AF6B-2B2F2A649D1D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6A125E30-1FAF-419D-8637-9B10E052D81F}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6A125E
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsfeed.Common", "Newsfeed.Common\Newsfeed.Common.csproj", "{6C487571-B8ED-41CE-90A4-35B6175A90FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +24,10 @@ Global
 		{2736DD31-18C4-4434-AF6B-2B2F2A649D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2736DD31-18C4-4434-AF6B-2B2F2A649D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2736DD31-18C4-4434-AF6B-2B2F2A649D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C487571-B8ED-41CE-90A4-35B6175A90FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C487571-B8ED-41CE-90A4-35B6175A90FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C487571-B8ED-41CE-90A4-35B6175A90FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C487571-B8ED-41CE-90A4-35B6175A90FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

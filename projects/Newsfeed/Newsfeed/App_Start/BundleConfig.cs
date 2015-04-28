@@ -11,9 +11,8 @@ namespace Newsfeed.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            //bundles.Add(new StyleBundle("~/Content/css").Include(
-            //          "~/Content/bootstrap.css",
-            //          "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/content/css").Include(
+                      "~/Content/Site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/core").Include(
                         "~/Scripts/jquery-{version}.js",
@@ -21,8 +20,9 @@ namespace Newsfeed.App_Start
                         "~/Scripts/react/JSXTransformer-{version}.js"
                         ));
 
-            bundles.Add(new JsxBundle("~/bundles/components").Include(
-                "~/Scripts/HelloWorld.jsx"
+            bundles.Add(new JsxBundle("~/bundles/react-components").Include(
+                "~/Scripts/HelloWorld.jsx",
+                "~/Scripts/StatusForm.jsx"
             ));
 
             //BundleTable.EnableOptimizations = true;

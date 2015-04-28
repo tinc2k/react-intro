@@ -152,6 +152,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
     <None Include="Scripts\HelloWorld.jsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -182,6 +183,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <Content Include="Scripts\StatusForm.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
